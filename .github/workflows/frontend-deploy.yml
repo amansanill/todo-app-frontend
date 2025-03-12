@@ -26,15 +26,3 @@ jobs:
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         source: "build/"
         target: "~/todo-app-frontend/build"
-
-    - name: SSH into EC2 and Restart PM2
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.EC2_PUBLIC_IP }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        script: |
-          cd ~/todo-app-frontend
-          pm2 delete todo-frontend || true
-          pm2 start "serve -s build -l 3000" --name todo-frontend
-          pm2 save
