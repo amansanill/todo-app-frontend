@@ -8,21 +8,21 @@ function App() {
   const [task, setTask] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/tasks').then((response) => {
+    axios.get('http://13.126.86.158:5000/tasks').then((response) => {
       setTasks(response.data);
     });
   }, []);
 
   const addTask = () => {
     const newTask = { id: Date.now().toString(), name: task };
-    axios.post('http://localhost:5000/tasks', newTask).then(() => {
+    axios.post('http://13.126.86.158:5000/tasks', newTask).then(() => {
       setTasks([...tasks, newTask]);
       setTask('');
     });
   };
 
   const deleteTask = (id) => {
-    axios.delete(`http://localhost:5000/tasks/${id}`).then(() => {
+    axios.delete(`http://13.126.86.158:5000/tasks/${id}`).then(() => {
       setTasks(tasks.filter((t) => t.id !== id));
     });
   };
