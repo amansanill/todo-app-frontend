@@ -22,7 +22,7 @@ function App() {
   };
 
   const deleteTask = (id) => {
-    axios.delete(http://13.126.86.158:5000/tasks/${id}).then(() => {
+    axios.delete(`http://13.126.86.158:5000/tasks/${id}`).then(() => {
       setTasks(tasks.filter((t) => t.id !== id));
     });
   };
