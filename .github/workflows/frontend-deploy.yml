@@ -28,7 +28,7 @@ jobs:
         with:
           host: ${{ secrets.EC2_PUBLIC_IP }}
           username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.sshkey }}
+          key: ${{ secrets.SSHKEY }}
           script: |
             cd ~/todo-app-frontend
             git pull origin main
